@@ -1,0 +1,47 @@
+/* add this to your :root variables */
+.checkbox {
+  --light: rgba(161, 161, 161, 0.425);
+  --primary-color: #0f172a;
+  --duration: 0.3s;
+  --ease: ease-in-out;
+}
+
+/* hide checkbox */
+.checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox label {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+}
+
+.checkbox svg {
+  height: 20px;
+  width: 20px;
+}
+
+/* svg rectangle property */
+.checkbox svg > rect {
+  fill: var(--light);
+  stroke: #0f172a;
+  /* responsive values */
+  stroke-dasharray: 400%;
+  stroke-dashoffset: 400%;
+  transition: var(--duration) stroke-dashoffset var(--ease);
+}
+
+/* svg check property */
+.checkbox svg path {
+  stroke: var(--primary-color);
+  /* responsive values */
+  stroke-dasharray: 100%;
+  stroke-dashoffset: 100%;
+  transition: var(--duration) stroke-dashoffset var(--ease);
+}
+
+.checkbox input[type="checkbox"]:checked + label svg > rect,
+  .checkbox input[type="checkbox"]:checked + label svg path {
+  stroke-dashoffset: 0;
+}
